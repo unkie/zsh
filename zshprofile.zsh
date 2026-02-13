@@ -4,19 +4,6 @@
 #
 # Loaded when the shell is a login shell
 
-# Determine the host system. This allows us to adapt to different operating systems.
-KERNEL=$(uname -s)
-
-if [ -z $KERNEL ]; then
-	echo "WARNING: could not determine Kernel type, assuming linux." >&2
-	KERNEL=linux
-fi
-
-case $KERNEL in
-	Darwin) macos=1;;
-	Linux|*) linux=1;;
-esac
-
 # This fixes many sdl based games with mouse jumping issues.
 export SDL_MOUSE_RELATIVE=0
 
