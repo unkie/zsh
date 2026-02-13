@@ -24,24 +24,6 @@ autoload colors; colors;
 umask 022
 
 
-case $KERNEL in
-	Darwin)
-		ssh-add ~/.ssh/private.key
-	;;
-
-	Linux|*)
-		# check if the app is valid
-		if [[ ! -x "$SSH_ASKPASS" ]]; then
-			echo "ERROR: $SSH_ASKPASS does not exist or is not executable!"
-		else
-			# keychain --quiet --systemd \
-			#	private.key1 \
-			#	private.key2
-
-			source ~/.keychain/$HOST-sh
-		fi
-	;;
-esac
 
 # Maintain a directory stack of 20 entries (accessible with ~- and
 # ~+), and automatically push directories when cd'ing into them.  The
