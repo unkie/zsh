@@ -49,23 +49,3 @@ setopt inc_append_history
 # Perform substitutions in the prompt.
 setopt promptsubst
 
-# Set the terminal title:
-# - When no program is running, set it to the current
-#   working directory. If it is a git repo, also show the git icon.
-# - When a command is started, set it to the name of the command.
-
-prompt_title_precmd() {
-  if git rev-parse --is-inside-work-tree &>/dev/null; then
-		icon=" "
-  fi
-  print -Pn "\e]0;%~$icon\a"
-}
-
-prompt_title_preexec() {
-  print -Pn "\e]0;$1\a"
-}
-
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd prompt_title_precmd
-add-zsh-hook preexec prompt_title_preexec
-
