@@ -2,7 +2,6 @@
 # █▀█ █▀█ █▀█ █▀▄▀█ █▀█ ▀█▀
 # █▀▀ █▀▄ █▄█ █░▀░█ █▀▀ ░█░
 #
-# Loaded from `zshrc.zsh`.
 
 # Setup the prompt using starship
 function starship_prompt () {
@@ -28,7 +27,7 @@ function basic_prompt () {
 	ZSH_THEME_GIT_PROMPT_DIRTY="*"
 }
 
-if (( $+commands[starship])); then
+if (( $+commands[starship] )); then
 	starship_prompt
 else
 	basic_prompt
