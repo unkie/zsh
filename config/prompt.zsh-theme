@@ -10,21 +10,14 @@ function starship_prompt () {
 
 # Setup a basic prompt with git info
 function basic_prompt () {
-	# Source the lib with the git_prompt_info function
-	source $ZDOTDIR/lib/git.zsh
+	ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[foam]%} "
+	ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+	ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[gold]%}!"
+	ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-	local _smiley="%(?,%#,%{$fg[red]%}%#%{$reset_color%})"
-
-	# Prompt (default prompt: [user@hostname dir]#)
-	export PROMPT='[%n@%m %d% $(git_prompt_info)]${_smiley} '
-	# Continuation prompt.
+	local _smiley="%(?,%{$fg[pine]%},%{$fg[love]%})%#%{$reset_color%}"
+	export PROMPT='[$fg[iris]%n $fg[pine]%~$(_omz_git_prompt_info)]${_smiley} '
 	export PS2='[%_] '
-
-	setopt prompt_subst
-	# For git
-	ZSH_THEME_GIT_PROMPT_PREFIX="("
-	ZSH_THEME_GIT_PROMPT_SUFFIX=")"
-	ZSH_THEME_GIT_PROMPT_DIRTY="*"
 }
 
 if (( $+commands[starship] )); then
