@@ -6,9 +6,6 @@
 
 # Enable compsys completion
 autoload -U compinit
-ZSH_COMPDUMP="${XDG_CACHE_HOME}/zsh/zcompdump"
-mkdir -p "${ZSH_COMPDUMP:h}"
-compinit -d "$ZSH_COMPDUMP"
 
 # Complete in the middle and end of words as well as in the beginning,
 # and make completions case insensitive.

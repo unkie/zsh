@@ -20,6 +20,9 @@ ZSH_CUSTOM="${XDG_CONFIG_HOME}/zsh/config"
 # Custom prompt theme.
 ZSH_THEME="prompt"
 
+# We want to use the cache dir for the completions cache.
+ZSH_COMPDUMP="${XDG_CACHE_HOME}/zsh/zcompdump"
+
 # We want hypen insensitive completion (- and _)
 HYPHEN_INSENSITIVE="true"
 
