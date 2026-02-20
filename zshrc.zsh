@@ -33,7 +33,7 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 HIST_STAMPS="yyyy-mm-dd"
 
 # Which plugins to load.
-plugins=()
+plugins=(zsh-autosuggestions)
 
 # Load omz.
 source $ZSH/oh-my-zsh.sh
