@@ -21,6 +21,8 @@ To install this zsh setup:
 cd "${XDG_CONFIG_HOME:-$HOME/.config}"
 git clone https://github.com/unkie/zsh/ zsh
 git clone https://github.com/ohmyzsh/ohmyzsh.git oh-my-zsh
+cd zsh
+git submodule update --init
 cd "${HOME}"
 ln -s ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zshenv.zsh .zshenv
 ```
