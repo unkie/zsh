@@ -16,6 +16,9 @@ export WINEDLLOVERRIDES='winemenubuilder.exe=d'
 # Use GTK2 theme for QT5 and QT6
 export QT_QPA_PLATFORMTHEME=qt6ct
 
+# QT apps should use the wayland backend, and fall back to X11
+export QT_QPA_PLATFORM='wayland;xcb'
+
 # use this app to ask for a password
 if [[ -x /usr/lib/ssh/gnome-ssh-askpass3 ]]; then
 	export SSH_ASKPASS=/usr/lib/ssh/gnome-ssh-askpass3
