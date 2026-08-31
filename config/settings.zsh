@@ -5,14 +5,28 @@ export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 eval $(dircolors ~/.dircolors)
 
 # Misc. environment
-HISTFILE="${XDG_STATE_HOME}/zsh/history"
 mkdir -p "${HISTFILE:h}"
-HISTSIZE=5000
 LESS=-ifR
 MAIL=/var/mail/$USER
-SAVEHIST=5000
 EDITOR=nvim
 #EMAIL=user@host.de
+
+# History
+HISTFILE="${XDG_STATE_HOME}/zsh/history"
+HISTSIZE=5000
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+setopt inc_append_history
+
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 
 # Export environment
 export EDITOR LESS EMAIL
@@ -39,12 +53,6 @@ setopt extendedglob
 
 ##
 # Command history options
-
-# Share history file between different zsh sessions.
-setopt sharehistory
-
-# History entries are written immediately.
-setopt inc_append_history
 
 # Perform substitutions in the prompt.
 setopt promptsubst
