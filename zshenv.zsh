@@ -9,3 +9,7 @@ export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+# XDG_CURRENT_DESKTOP, XDG_SESSION_TYPE, and XDG_SESSION_DESKTOP
+# are set in ~/.config/hypr/autostart.lua
+
