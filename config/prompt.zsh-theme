@@ -27,5 +27,4 @@ else
 fi
 
 # The prompt starts on the bottom of the window.
-printf '\n%.0s' {0..`expr $LINES - 2`}
-
+printf '\n%.0s' {1..$((LINES-2))}
