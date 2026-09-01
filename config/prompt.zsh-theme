@@ -3,6 +3,11 @@
 # █▀▀ █▀▄ █▄█ █░▀░█ █▀▀ ░█░
 #
 
+# Setup the prompt using oh-my-posh
+function posh_prompt () {
+	eval "$(oh-my-posh init zsh --config ~/.config/zsh/config/oh-my-posh.json)"
+}
+
 # Setup the prompt using starship
 function starship_prompt () {
 	eval "$(starship init zsh)"
@@ -20,7 +25,9 @@ function basic_prompt () {
 	export PS2='[%_] '
 }
 
-if (( $+commands[starship] )); then
+if (( $+commands[oh-my-posh] )); then
+	posh_prompt
+elif (( $+commands[starship] )); then
 	starship_prompt
 else
 	basic_prompt

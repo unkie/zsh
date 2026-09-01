@@ -1,0 +1,119 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 4,
+  "final_space": true,
+  "streaming": 100,
+  "palette": {
+    "overlay": "#26233a",
+    "underlay": "#191724",
+    "love": "#eb6f92",
+    "gold": "#f6c177",
+    "rose": "#ebbcba",
+    "pine": "#31748f",
+    "foam": "#9ccfd8",
+    "iris": "#c4a7e7"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "p:iris",
+          "foreground_templates": [
+            "{{ if .Root }}p:love{{ end }}"
+          ],
+          "background": "p:overlay",
+          "template": " 󰧱 {{ .UserName }} <p:underlay,p:overlay>╱</>"
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "p:pine",
+          "background": "p:overlay",
+          "template": " {{ .Path }} {{ if .Segments.Contains \"Git\" }}<p:underlay,p:overlay>╱</>{{ else }}<p:overlay,transparent></>{{ end }}",
+          "options": {
+            "style": "agnoster_short",
+            "folder_icon": "…",
+            "home_icon": "",
+            "max_depth": 3,
+            "hide_root_location": false,
+            "display_root": true,
+            "mapped_locations": {
+              "~/Documents": "󰈙",
+              "~/Downloads": "",
+              "~/Music": "󰝚",
+              "~/Pictures": "",
+              "~/Developer": "󰲋",
+              "/home/music": "󰝚"
+            }
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "p:foam",
+          "background": "p:overlay",
+          "exclude_folders": [
+            "~"
+          ],
+          "template": " {{.HEAD}} {{ if or (.Working.Changed) (.Staging.Changed) }}<p:gold>!</>{{ else }}<p:iris>✓</>{{end}}{{ if .Working.Untracked}}<p:gold>?</>{{end}}{{if gt .Behind 0}}⇣{{end}}{{if gt .Ahead 0}}⇡{{end}} <p:overlay,transparent></>",
+          "options": {
+            "branch_icon": " ",
+            "fetch_status": true,
+            "commit_icon": "@",
+            "branch_ahead_icon": "⇡",
+            "branch_behind_icon": "⇣",
+            "branch_identical_icon": "✓"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "filler": "<p:overlay>─</>",
+      "force": true,
+      "segments": [
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "template": "<p:overlay,transparent></><p:gold,p:overlay> {{ .FormattedMs}} ",
+          "options": {
+            "threshold": 5000,
+            "style": "round"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "vimode",
+          "style": "plain",
+          "foreground": "p:pine",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}p:love{{ end }}",
+            "{{ if or (eq .Mode \"visual\") (eq .Mode \"replace\") }}p:iris{{ end }}"
+          ],
+          "template": "{{ if eq .Mode \"insert\" }}❯{{ else }}❮{{ end }}"
+        }
+      ]
+    }
+  ],
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground": "p:pine",
+    "foreground_templates": [
+      "{{ if gt .Code 0 }}p:love{{ end }}"
+    ],
+    "template": "❯ ",
+    "newline": true
+  }
+}
