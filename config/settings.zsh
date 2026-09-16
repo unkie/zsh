@@ -28,6 +28,9 @@ setopt inc_append_history
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
+# use fuzzy finder for history search as well
+eval "$(fzf --zsh)"
+
 # Export environment
 export EDITOR LESS EMAIL
 
